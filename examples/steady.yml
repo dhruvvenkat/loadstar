@@ -1,0 +1,26 @@
+baseUrl: "https://httpbin.org"
+phases:
+  - name: "steady"
+    durationSec: 20
+    targetRps: 40
+endpoints:
+  - name: "get-anything"
+    method: "GET"
+    path: "/anything/{{random.int(1,100)}}"
+    weight: 3
+  - name: "post-json"
+    method: "POST"
+    path: "/post"
+    weight: 1
+    body:
+      json:
+        id: "{{random.uuid}}"
+        tag: "{{random.choice(\"alpha\",\"beta\",\"gamma\")}}"
+timeouts:
+  requestMs: 2000
+concurrency:
+  maxInFlight: 150
+  maxConnections: 40
+thresholds:
+  p95LatencyMs: 1500
+  errorRatePct: 5

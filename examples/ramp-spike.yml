@@ -1,0 +1,33 @@
+baseUrl: "https://httpbin.org"
+phases:
+  - name: "warmup"
+    durationSec: 15
+    targetRps: 20
+  - name: "ramp"
+    durationSec: 20
+    targetRps: 60
+  - name: "spike"
+    durationSec: 10
+    targetRps: 120
+endpoints:
+  - name: "search"
+    method: "GET"
+    path: "/anything/search?q={{random.string(6)}}"
+    weight: 4
+  - name: "lookup"
+    method: "GET"
+    path: "/status/{{random.choice(\"200\",\"200\",\"429\",\"500\")}}"
+    weight: 2
+  - name: "submit"
+    method: "POST"
+    path: "/post"
+    weight: 1
+    body:
+      json:
+        userId: "{{random.int(1,10000)}}"
+        payload: "{{random.string(12)}}"
+timeouts:
+  requestMs: 2500
+concurrency:
+  maxInFlight: 200
+  maxConnections: 50

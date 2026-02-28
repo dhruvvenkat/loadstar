@@ -1,0 +1,30 @@
+baseUrl: "https://httpbin.org"
+phases:
+  - name: "retry-storm"
+    durationSec: 20
+    targetRps: 30
+endpoints:
+  - name: "often-fails"
+    method: "GET"
+    path: "/status/{{random.choice(\"503\",\"503\",\"503\",\"200\")}}"
+    weight: 3
+  - name: "timeout-prone"
+    method: "GET"
+    path: "/delay/{{random.choice(\"1\",\"2\",\"3\")}}"
+    weight: 1
+    timeoutMs: 1200
+timeouts:
+  requestMs: 1500
+concurrency:
+  maxInFlight: 120
+  maxConnections: 30
+retries:
+  maxAttempts: 3
+  backoffMs: [100, 300, 900]
+  jitter: true
+  retryOn:
+    statuses: [429, 500, 502, 503, 504]
+    timeouts: true
+    networkErrors: true
+thresholds:
+  errorRatePct: 20
