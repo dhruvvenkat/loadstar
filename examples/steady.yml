@@ -1,4 +1,4 @@
-baseUrl: "https://httpbin.org"
+baseUrl: "https://www.google.com"
 phases:
   - name: "steady"
     durationSec: 20

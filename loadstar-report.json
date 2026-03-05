@@ -1,0 +1,197 @@
+{
+  "metadata": {
+    "startTime": "2026-03-02T18:59:09.884Z",
+    "durationSec": 20.156,
+    "seed": 42,
+    "baseUrl": "https://www.google.com",
+    "nodeVersion": "v24.11.1"
+  },
+  "perPhase": [
+    {
+      "name": "steady",
+      "successes": 0,
+      "httpErrors": 847,
+      "networkErrors": 0,
+      "timeouts": 0,
+      "retries": 0,
+      "clientDrops": 0,
+      "totalLatencyMs": 101254,
+      "completed": 847,
+      "avgLatencyMs": 119.54427390791027,
+      "errorRatePct": 100,
+      "p50LatencyMs": 200,
+      "p95LatencyMs": 200,
+      "p99LatencyMs": 200,
+      "histogram": {
+        "boundsMs": [
+          10,
+          25,
+          50,
+          100,
+          200,
+          400,
+          800,
+          1500,
+          3000,
+          6000,
+          10000
+        ],
+        "counts": [
+          0,
+          0,
+          0,
+          0,
+          846,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "total": 847
+      }
+    }
+  ],
+  "overall": {
+    "name": "overall",
+    "successes": 0,
+    "httpErrors": 847,
+    "networkErrors": 0,
+    "timeouts": 0,
+    "retries": 0,
+    "clientDrops": 0,
+    "totalLatencyMs": 101254,
+    "completed": 847,
+    "avgLatencyMs": 119.54427390791027,
+    "errorRatePct": 100,
+    "p50LatencyMs": 200,
+    "p95LatencyMs": 200,
+    "p99LatencyMs": 200,
+    "histogram": {
+      "boundsMs": [
+        10,
+        25,
+        50,
+        100,
+        200,
+        400,
+        800,
+        1500,
+        3000,
+        6000,
+        10000
+      ],
+      "counts": [
+        0,
+        0,
+        0,
+        0,
+        846,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "total": 847
+    }
+  },
+  "perEndpoint": [
+    {
+      "name": "get-anything",
+      "successes": 0,
+      "httpErrors": 660,
+      "networkErrors": 0,
+      "timeouts": 0,
+      "retries": 0,
+      "clientDrops": 0,
+      "totalLatencyMs": 78908,
+      "completed": 660,
+      "avgLatencyMs": 119.55757575757576,
+      "errorRatePct": 100,
+      "p50LatencyMs": 200,
+      "p95LatencyMs": 200,
+      "p99LatencyMs": 200,
+      "histogram": {
+        "boundsMs": [
+          10,
+          25,
+          50,
+          100,
+          200,
+          400,
+          800,
+          1500,
+          3000,
+          6000,
+          10000
+        ],
+        "counts": [
+          0,
+          0,
+          0,
+          0,
+          659,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "total": 660
+      }
+    },
+    {
+      "name": "post-json",
+      "successes": 0,
+      "httpErrors": 187,
+      "networkErrors": 0,
+      "timeouts": 0,
+      "retries": 0,
+      "clientDrops": 0,
+      "totalLatencyMs": 22346,
+      "completed": 187,
+      "avgLatencyMs": 119.49732620320856,
+      "errorRatePct": 100,
+      "p50LatencyMs": 200,
+      "p95LatencyMs": 200,
+      "p99LatencyMs": 200,
+      "histogram": {
+        "boundsMs": [
+          10,
+          25,
+          50,
+          100,
+          200,
+          400,
+          800,
+          1500,
+          3000,
+          6000,
+          10000
+        ],
+        "counts": [
+          0,
+          0,
+          0,
+          0,
+          187,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "total": 187
+      }
+    }
+  ]
+}
