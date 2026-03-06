@@ -8,6 +8,7 @@ export interface ReportStats {
   timeouts: number;
   retries: number;
   clientDrops: number;
+  totalLatencyMs: number;
   completed: number;
   avgLatencyMs: number;
   errorRatePct: number;
@@ -24,6 +25,11 @@ export interface LoadBuddyReport {
     seed: number;
     baseUrl: string;
     nodeVersion: string;
+    thresholds?: {
+      p95LatencyMs?: number;
+      errorRatePct?: number;
+    };
+    thresholdsViolated?: boolean;
   };
   perPhase: ReportStats[];
   overall: ReportStats;

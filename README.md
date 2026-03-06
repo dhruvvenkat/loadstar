@@ -33,6 +33,11 @@ Options:
 - `--json` print final summary JSON to stdout
 - `--quiet` disable live dashboard
 
+Every run now writes two artifacts side by side:
+
+- a machine-readable JSON report
+- a stakeholder-friendly HTML report with summary cards, charts, and tables
+
 ## Plan Schema
 
 Plan files can be YAML (`.yml` / `.yaml`) or JSON.
@@ -96,6 +101,13 @@ The report JSON includes:
 - overall summary
 - per-endpoint summary
 - histogram buckets and counts
+
+The HTML report presents the same data in a non-technical format with:
+
+- overall health and threshold status
+- executive summary cards
+- outcome and latency graphics
+- readable phase and endpoint tables
 
 Latency percentile estimates are derived from cumulative histogram buckets:
 `0-10, 10-25, 25-50, 50-100, 100-200, 200-400, 400-800, 800-1500, 1500-3000, 3000-6000, 6000-10000, 10000+ ms`.

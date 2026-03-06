@@ -30,12 +30,12 @@ program
       }
       const plan = await loadPlanFromFile(resolve(planFile));
       const result = await runPlan(plan, { seed, quiet: options.quiet });
-      await writeReport(result.report, options.out);
+      const artifacts = await writeReport(result.report, options.out);
       if (options.json) {
         process.stdout.write(`${JSON.stringify(result.report.overall, null, 2)}\n`);
       } else {
         process.stdout.write(
-          `Run complete. successes=${result.report.overall.successes} errors=${result.report.overall.httpErrors + result.report.overall.networkErrors + result.report.overall.timeouts} p95=${result.report.overall.p95LatencyMs}ms report=${resolve(options.out)}\n`
+          `Run complete. successes=${result.report.overall.successes} errors=${result.report.overall.httpErrors + result.report.overall.networkErrors + result.report.overall.timeouts} p95=${result.report.overall.p95LatencyMs}ms json=${artifacts.jsonPath} html=${artifacts.htmlPath}\n`
         );
       }
       process.exit(result.thresholdsViolated ? 2 : 0);

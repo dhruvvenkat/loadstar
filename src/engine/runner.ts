@@ -202,18 +202,21 @@ export async function runPlan(plan: LoadPlan, options: RunnerOptions): Promise<R
 
   const overall = aggregator.overallSummary();
   const durationSec = (Date.now() - startMs) / 1000;
+  const thresholdsViolated = isThresholdsViolated(plan, overall);
   const report: LoadBuddyReport = {
     metadata: {
       startTime: startedAt.toISOString(),
       durationSec,
       seed: options.seed,
       baseUrl: plan.baseUrl,
-      nodeVersion: process.version
+      nodeVersion: process.version,
+      thresholds: plan.thresholds,
+      thresholdsViolated
     },
     perPhase: aggregator.phaseSummaries(),
     overall,
     perEndpoint: aggregator.endpointSummaries()
   };
 
-  return { report, thresholdsViolated: isThresholdsViolated(plan, overall) };
+  return { report, thresholdsViolated };
 }

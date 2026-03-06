@@ -10,14 +10,24 @@ export default [
       parser: tsParser,
       parserOptions: {
         project: "./tsconfig.json"
+      },
+      globals: {
+        AbortController: "readonly",
+        NodeJS: "readonly",
+        clearTimeout: "readonly",
+        process: "readonly",
+        setTimeout: "readonly"
       }
     },
     plugins: {
       "@typescript-eslint": tseslint
     },
     rules: {
+      "no-undef": "off",
+      "no-unused-vars": "off",
       "@typescript-eslint/no-explicit-any": "off",
-      "@typescript-eslint/no-floating-promises": "error"
+      "@typescript-eslint/no-floating-promises": "error",
+      "@typescript-eslint/no-unused-vars": "error"
     }
   },
   {
